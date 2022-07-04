@@ -33,7 +33,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App bg-bgPrimary h-screen">
       <SignOut />
       <section>{user ? <ChatRoom /> : <SignIn />}</section>
     </div>

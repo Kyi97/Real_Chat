@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import firebase from 'firebase/compat/app'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 
@@ -12,19 +12,27 @@ firebase.initializeApp({
   measurementId: 'G-B62ETC7VGK',
 })
 const firestore = firebase.firestore()
+const auth = firebase.auth()
 
 const ChatRoom = () => {
   const messagesRef = firestore.collection('messages')
   const query = messagesRef.orderBy('createdAt').limit(25)
-
   const [messages] = useCollectionData(query, { idField: 'id' })
+  console.log(messages)
 
   return (
+    // <div className="grid grid-cols-3">
+    //   <div>left</div>
+    //   <div className="col-span-2 bg-white rounded-xl">
+    //     <div></div>
+    //   </div>
+    // </div>
     <div>
       {messages &&
-        messages.map((message) => (
-          <ChatMessage key={message.id} message={message} />
+        messages.map((message, id) => (
+          <ChatMessage key={id} message={message} />
         ))}
+      <InputMessage />
     </div>
   )
 }
@@ -32,9 +40,44 @@ const ChatRoom = () => {
 const ChatMessage = ({ message }) => {
   return (
     <div>
+      <div>
+        <img src={message.photoURL} />
+      </div>
       <div>{message.text}</div>
-      <div>{message.createdAt.toDate().toLocaleString()}</div>
+      <div>
+        {message.createdAt != null &&
+          message.createdAt.toDate().toLocaleString()}
+      </div>
     </div>
+  )
+}
+
+const InputMessage = () => {
+  const messagesRef = firestore.collection('messages')
+
+  const [formValue, setFormValue] = useState('')
+
+  const sendMessage = async (e) => {
+    e.preventDefault()
+
+    const { uid, photoURL } = auth.currentUser
+    console.log(uid)
+
+    await messagesRef.add({
+      text: formValue,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      uid,
+      photoURL,
+    })
+
+    setFormValue('')
+  }
+
+  return (
+    <form onSubmit={sendMessage}>
+      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} />
+      <button type="submit">Send</button>
+    </form>
   )
 }
 
