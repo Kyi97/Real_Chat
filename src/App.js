@@ -8,6 +8,7 @@ import SignIn from './components/SignIn'
 
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
+import { IoIosLogOut } from 'react-icons/io'
 
 firebase.initializeApp({
   apiKey: 'AIzaSyCWr4slB3wOzFn8VEyDUUEF4xQS0joDepY',
@@ -27,7 +28,9 @@ function App() {
   const SignOut = () => {
     return (
       auth.currentUser && (
-        <button onClick={() => auth.signOut()}>Sign Out</button>
+        <div className="flex justify-end px-8 py-4">
+          <IoIosLogOut onClick={() => auth.signOut()} size={'20px'} />
+        </div>
       )
     )
   }
