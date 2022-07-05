@@ -25,7 +25,7 @@ const ChatRoom = () => {
     <div className="grid grid-cols-3 h-[85vh]">
       <div>left</div>
       <div className="text-black col-span-2 bg-white rounded-2xl px-8 py-5 flex flex-col justify-between">
-        <div className="overflow-auto h-[83vh] pb-8">
+        <div className="overflow-auto no-scrollbar h-[83vh] pb-8">
           {messages &&
             messages.map((message, id) => (
               <ChatMessage key={id} message={message} />
@@ -38,19 +38,26 @@ const ChatRoom = () => {
 }
 
 const ChatMessage = ({ message }) => {
+  const { uid } = auth.currentUser
   return (
-    <div className="flex mt-3">
-      <div className="w-10 h-10 mr-5">
-        <img className="rounded-full" src={message.photoURL} />
-        <div className="text-xs mt-1">
-          {message.createdAt != null &&
-            message.createdAt.toDate().toLocaleTimeString('en-GB', {
-              hour: '2-digit',
-              minute: '2-digit',
-            })}
+    <div className={`flex mt-3 ${uid == message.uid ? 'justify-end' : ''}`}>
+      {uid != message.uid ? (
+        <div className="w-10 h-10 mr-5">
+          <img className="rounded-full" src={message.photoURL} />
+          <div className="text-xs mt-1">
+            {message.createdAt != null &&
+              message.createdAt.toDate().toLocaleTimeString('en-GB', {
+                hour: '2-digit',
+                minute: '2-digit',
+              })}
+          </div>
         </div>
-      </div>
-      <div className="max-w-[58%] text-left px-5 py-5 bg-bgSecondary rounded-b-3xl rounded-tr-2xl shadow-md">
+      ) : null}
+      <div
+        className={`max-w-[58%]  px-5 py-5  rounded-b-3xl rounded-tr-2xl shadow-md ${
+          uid == message.uid ? 'bg-purple text-white' : 'bg-bgSecondary'
+        }`}
+      >
         <p className="text-sm">{message.text}</p>
       </div>
     </div>
