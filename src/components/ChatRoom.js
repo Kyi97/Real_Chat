@@ -17,7 +17,7 @@ const auth = firebase.auth()
 
 const ChatRoom = () => {
   const messagesRef = firestore.collection('messages')
-  const query = messagesRef.orderBy('createdAt').limit(25)
+  const query = messagesRef.orderBy('createdAt')
   const [messages] = useCollectionData(query, { idField: 'id' })
 
   useEffect(() => {
