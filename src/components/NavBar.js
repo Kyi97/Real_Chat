@@ -1,12 +1,13 @@
 import React from "react";
 import { IoIosLogOut } from "react-icons/io";
+import { auth } from "../firebase";
 const NavBar = () => {
   return (
     <div>
       <nav className="flex items-center justify-between flex-wrap bg-[#F5F7FB] p-6">
         <div className="flex items-center flex-shrink-0 text-[#636365] mr-6">
           <svg
-            class="h-12 w-12"
+            className="h-12 w-12"
             viewBox="0 0 40 40"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -93,8 +94,7 @@ const NavBar = () => {
             </a>
           </div>
           <div className="flex justify-end ">
-            <IoIosLogOut size={"20px"} />
-            {/* <IoIosLogOut onClick={() => auth.signOut()} size={"20px"} /> */}
+            <IoIosLogOut onClick={() => auth.signOut()} size={"20px"} />
           </div>
         </div>
       </nav>
