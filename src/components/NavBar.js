@@ -99,17 +99,22 @@ const NavBar = () => {
         </div>
       </nav>
       {/* Search Clear Chat More */}
-      <div className="p-6 justify-between">
-        <div className="flex h-10">
+      <div className="p-6 flex justify-between">
+        <div className="w-1/4">
           <input
-            className=" bg-white  w-64 py-4 px-3 text-black leading-tight focus:outline-none focus:shadow-outline mr-1 rounded-full"
+            className=" bg-white  w-full py-4 px-3 text-black leading-tight focus:outline-none focus:shadow-outline mr-1 rounded-3xl"
             id="search"
             type="text"
             placeholder="Search"
           />
         </div>
-        <div>
-          <div></div>
+        <div className="flex justify-end w-3/4">
+          <div className="bg-white text-sm w-40 font-bold py-4 px-3 text-black leading-tight focus:outline-none focus:shadow-outline mr-1 rounded-3xl">
+            CLEAR CHAT
+          </div>
+          <div className="bg-white text-sm font-bold  w-32 py-4 px-3 text-black leading-tight focus:outline-none focus:shadow-outline mr-1 rounded-3xl">
+            MORE
+          </div>
         </div>
       </div>
     </div>
