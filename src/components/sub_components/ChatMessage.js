@@ -3,10 +3,13 @@ import { auth } from '../../firebase'
 
 const ChatMessage = ({ message, showImage }) => {
   const { uid } = auth.currentUser
-  console.log(showImage)
 
   return (
-    <div className={`flex mt-2 ${uid === message.uid ? 'justify-end' : ''}`}>
+    <div
+      className={`flex ${showImage ? 'mt-5' : 'mt-1'} ${
+        uid === message.uid ? 'justify-end' : ''
+      }`}
+    >
       <div className="w-10 h-10 mr-5">
         {uid !== message.uid && showImage ? (
           <div>
