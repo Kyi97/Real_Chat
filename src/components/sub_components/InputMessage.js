@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { IoIosSend } from 'react-icons/io'
 import InputEmoji from 'react-input-emoji'
-import { auth, firestore } from '../../firebase'
+import { auth, firestore, firestore_ } from '../../firebase'
 
 const InputMessage = () => {
   const messagesRef = firestore.collection('messages')
@@ -16,7 +16,7 @@ const InputMessage = () => {
 
       await messagesRef.add({
         text: formValue,
-        // createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        createdAt: firestore_.FieldValue.serverTimestamp(),
         uid,
         photoURL,
       })
