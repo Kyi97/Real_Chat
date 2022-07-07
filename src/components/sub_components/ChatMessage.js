@@ -3,7 +3,6 @@ import { auth } from '../../firebase'
 
 const ChatMessage = ({ message, showImage }) => {
   const { uid } = auth.currentUser
-  console.log(showImage)
 
   return (
     <div className={`flex mt-2 ${uid === message.uid ? 'justify-end' : ''}`}>

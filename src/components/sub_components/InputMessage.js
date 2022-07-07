@@ -9,7 +9,7 @@ const InputMessage = () => {
   const [formValue, setFormValue] = useState('')
 
   const sendMessage = async (e) => {
-    e.preventDefault()
+    e && e.preventDefault()
     if (formValue !== '') {
       const { uid, photoURL } = auth.currentUser
       console.log(uid)
@@ -33,15 +33,16 @@ const InputMessage = () => {
             value={formValue}
             onChange={setFormValue}
             placeholder="Type a message..."
+            onEnter={(e) => {
+              sendMessage()
+            }}
           />
           {/* <input
-              className="bg-bgSecondary shadow-inner text-sm appearance-none rounded-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none focus:bg-gray-200 focus:border-purple"
-              id="inline-full-name"
-              type="text"
-              placeholder="Type a message..."
-              value={formValue}
-              onChange={(e) => setFormValue(e.target.value)}
-            /> */}
+            className="bg-bgSecondary shadow-inner text-sm appearance-none rounded-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none focus:bg-gray-200 focus:border-purple"
+            placeholder="Type a message..."
+            value={formValue}
+            onChange={(e) => setFormValue(e.target.value)}
+          /> */}
         </div>
         <div className="">
           <button
