@@ -7,7 +7,6 @@ import ChatRoom from './components/ChatRoom'
 import SignIn from './components/SignIn'
 
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useCollectionData } from 'react-firebase-hooks/firestore'
 import { IoIosLogOut } from 'react-icons/io'
 
 firebase.initializeApp({
@@ -20,7 +19,6 @@ firebase.initializeApp({
   measurementId: 'G-B62ETC7VGK',
 })
 const auth = firebase.auth()
-const firestore = firebase.firestore()
 
 function App() {
   const [user] = useAuthState(auth)
@@ -36,7 +34,7 @@ function App() {
   }
 
   return (
-    <div className="App bg-bgPrimary h-screen">
+    <div className="App bg-bgPrimary h-screen px-10">
       <SignOut />
       <section>{user ? <ChatRoom /> : <SignIn />}</section>
     </div>

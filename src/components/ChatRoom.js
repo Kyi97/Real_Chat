@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import firebase from 'firebase/compat/app'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 import { IoIosSend } from 'react-icons/io'
+import InputEmoji from 'react-input-emoji'
 
 firebase.initializeApp({
   apiKey: 'AIzaSyCWr4slB3wOzFn8VEyDUUEF4xQS0joDepY',
@@ -30,7 +31,7 @@ const ChatRoom = () => {
       <div>left</div>
       <div className="text-black col-span-2 bg-white rounded-2xl px-8 py-5 flex flex-col justify-between">
         <div
-          className="overflow-auto no-scrollbar h-[83vh] pb-8"
+          className="overflow-auto no-scrollbar h-[75vh] pb-8"
           id="alwaysBottom"
         >
           {messages &&
@@ -38,7 +39,9 @@ const ChatRoom = () => {
               <ChatMessage
                 key={id}
                 showImage={
-                  arr[id - 1 < 0 ? 0 : id - 1].uid == message.uid ? false : true
+                  arr[id - 1 < 0 ? 0 : id - 1].uid === message.uid
+                    ? false
+                    : true
                 }
                 message={message}
               />
@@ -55,13 +58,13 @@ const ChatMessage = ({ message, showImage }) => {
   console.log(showImage)
 
   return (
-    <div className={`flex mt-2 ${uid == message.uid ? 'justify-end' : ''}`}>
+    <div className={`flex mt-2 ${uid === message.uid ? 'justify-end' : ''}`}>
       <div className="w-10 h-10 mr-5">
-        {uid != message.uid && showImage ? (
+        {uid !== message.uid && showImage ? (
           <div>
             <img className="rounded-full" src={message.photoURL} />
             <div className="text-xs mt-1">
-              {message.createdAt != null &&
+              {message.createdAt !== null &&
                 message.createdAt.toDate().toLocaleTimeString('en-GB', {
                   hour: '2-digit',
                   minute: '2-digit',
@@ -72,7 +75,7 @@ const ChatMessage = ({ message, showImage }) => {
       </div>
       <div
         className={`max-w-[58%] px-5 py-5 rounded-b-3xl shadow-md ${
-          uid == message.uid
+          uid === message.uid
             ? 'bg-purple text-white rounded-tl-2xl'
             : 'bg-bgSecondary rounded-tr-2xl'
         }`}
@@ -87,6 +90,7 @@ const InputMessage = () => {
   const messagesRef = firestore.collection('messages')
 
   const [formValue, setFormValue] = useState('')
+  const [text, setText] = useState('')
 
   const sendMessage = async (e) => {
     e.preventDefault()
@@ -109,14 +113,19 @@ const InputMessage = () => {
     <div className="">
       <form className="w-full flex" onSubmit={sendMessage}>
         <div className="w-[90%] mr-3">
-          <input
+          <InputEmoji
+            value={formValue}
+            onChange={setFormValue}
+            placeholder="Type a message..."
+          />
+          {/* <input
             className="bg-bgSecondary shadow-inner text-sm appearance-none rounded-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none focus:bg-gray-200 focus:border-purple"
             id="inline-full-name"
             type="text"
             placeholder="Type a message..."
             value={formValue}
             onChange={(e) => setFormValue(e.target.value)}
-          />
+          /> */}
         </div>
         <div className="">
           <button
