@@ -27,13 +27,10 @@ const ChatRoom = () => {
   }, [messages])
 
   return (
-    <div className="grid grid-cols-3 h-[85vh]">
+    <div className="grid grid-cols-3">
       <div>left</div>
-      <div className="text-black col-span-2 bg-white rounded-2xl px-8 py-5 flex flex-col justify-between">
-        <div
-          className="overflow-auto no-scrollbar h-[75vh] pb-8"
-          id="alwaysBottom"
-        >
+      <div className="text-black col-span-2 h-[70vh] bg-white rounded-2xl px-8 py-5 flex flex-col justify-between">
+        <div className="overflow-auto no-scrollbar pb-8" id="alwaysBottom">
           {messages &&
             messages.map((message, id, arr) => (
               <ChatMessage
