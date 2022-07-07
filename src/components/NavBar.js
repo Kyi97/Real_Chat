@@ -1,6 +1,6 @@
-import React from "react";
-import { IoIosLogOut } from "react-icons/io";
-import { auth } from "../firebase";
+import React from 'react'
+import { IoIosLogOut } from 'react-icons/io'
+import { auth } from '../firebase'
 const NavBar = () => {
   return (
     <div>
@@ -94,11 +94,11 @@ const NavBar = () => {
             </a>
           </div>
           <div className="flex justify-end ">
-            <IoIosLogOut onClick={() => auth.signOut()} size={"20px"} />
+            <IoIosLogOut onClick={() => auth.signOut()} size={'20px'} />
           </div>
         </div>
       </nav>
-      {/* Search Clear Chat More */}
+      {/* Search Clear Chat More
       <div className="p-6 flex justify-between">
         <div className="w-1/4">
           <input
@@ -116,8 +116,8 @@ const NavBar = () => {
             MORE
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
-  );
-};
-export default NavBar;
+  )
+}
+export default NavBar

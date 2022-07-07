@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const SideBar = () => {
   return (
@@ -9,8 +9,8 @@ const SideBar = () => {
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
                 <img
-                  className="w-8 h-8 rounded-full"
-                  src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
+                  className="w-8 h-8 rounded-full object-cover"
+                  src="https://images.hdqwalls.com/download/courage-the-cowardly-dog-minimal-4k-4g-250x250.jpg"
                   alt=""
                 />
               </div>
@@ -31,8 +31,8 @@ const SideBar = () => {
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
                 <img
-                  className="w-8 h-8 rounded-full"
-                  src="https://images.hdqwalls.com/wallpapers/aladdins-genie-5k-7b.jpg"
+                  className="w-8 h-8 rounded-full object-cover"
+                  src="https://images.hdqwalls.com/download/pikapool-rv-250x250.jpg"
                   alt=""
                 />
               </div>
@@ -53,8 +53,8 @@ const SideBar = () => {
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
                 <img
-                  className="w-8 h-8 rounded-full"
-                  src="https://images.hdqwalls.com/wallpapers/spongebob-squarepants-4k-2020-4s.jpg"
+                  className="w-8 h-8 rounded-full object-cover"
+                  src="https://images.hdqwalls.com/download/bart-simpson-got-high-5k-l4-250x250.jpg"
                   alt=""
                 />
               </div>
@@ -73,8 +73,8 @@ const SideBar = () => {
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
                 <img
-                  className="w-8 h-8 rounded-full"
-                  src="https://images.hdqwalls.com/wallpapers/courage-the-cowardly-dog-minimal-4k-4g.jpg"
+                  className="w-8 h-8 rounded-full object-cover"
+                  src="https://images.hdqwalls.com/download/donald-duck-found-a-treasure-4k-b7-250x250.jpg"
                   alt=""
                 />
               </div>
@@ -95,8 +95,8 @@ const SideBar = () => {
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
                 <img
-                  className="w-8 h-8 rounded-full"
-                  src="https://images.hdqwalls.com/wallpapers/bob-minions.jpg"
+                  className="w-8 h-8 rounded-full object-cover"
+                  src="https://images.hdqwalls.com/download/rick-and-morty-gig-4k-ny-250x250.jpg"
                   alt=""
                 />
               </div>
@@ -116,6 +116,6 @@ const SideBar = () => {
         </ul>
       </div>
     </div>
-  );
-};
-export default SideBar;
+  )
+}
+export default SideBar
