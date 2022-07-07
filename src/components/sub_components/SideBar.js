@@ -2,7 +2,7 @@ import React from "react";
 
 const SideBar = () => {
   return (
-    <div className="ml-5 max-w-md bg-white rounded-2xl px-8 py-5 flex flex-col ">
+    <div className="ml-5 mr-10 bg-white rounded-2xl px-8 py-5 flex flex-col ">
       <div className="flow-root">
         <ul>
           <li className="py-3 sm:py-4">
