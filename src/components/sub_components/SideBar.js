@@ -1,13 +1,10 @@
-/* eslint-disable jsx-a11y/no-redundant-roles */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
 
 const SideBar = () => {
   return (
     <div className="ml-5 max-w-md bg-white rounded-2xl px-8 py-5 flex flex-col ">
       <div className="flow-root">
-        <ul role="list">
+        <ul>
           <li className="py-3 sm:py-4">
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
