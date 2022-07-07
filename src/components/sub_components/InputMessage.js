@@ -47,7 +47,7 @@ const InputMessage = () => {
         <div className="">
           <button
             type="submit"
-            className="bg-green text-white w-11 h-11 flex justify-center items-center rounded-full"
+            className="bg-green text-white w-11 h-11 flex justify-center items-center rounded-full shadow-xl hover:scale-110 ease-in duration-100 transition"
           >
             <IoIosSend size={'23px'} />
           </button>
