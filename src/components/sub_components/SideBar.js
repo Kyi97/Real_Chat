@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const SideBar = () => {
   return (
-    <div className="ml-5 mr-10 bg-white rounded-2xl px-8 py-5 flex flex-col ">
-      <div className="flow-root">
+    <div className="ml-5 mr-10 bg-white rounded-2xl px-8 py-5  flex-col hidden">
+      <div>
         <ul>
           <li className="py-3 sm:py-4">
             <div className="flex items-start space-x-4">
@@ -116,6 +116,6 @@ const SideBar = () => {
         </ul>
       </div>
     </div>
-  )
-}
-export default SideBar
+  );
+};
+export default SideBar;

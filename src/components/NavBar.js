@@ -1,6 +1,6 @@
-import React from 'react'
-import { IoIosLogOut } from 'react-icons/io'
-import { auth } from '../firebase'
+import React from "react";
+import { IoIosLogOut } from "react-icons/io";
+import { auth } from "../firebase";
 const NavBar = () => {
   return (
     <div>
@@ -54,7 +54,7 @@ const NavBar = () => {
             </svg>
           </button>
         </div>
-        <div className="w-full block lg:flex lg:items-center lg:w-auto">
+        <div className="w-full hidden lg:flex lg:items-center lg:w-auto">
           <div className="text-md font-bold lg:flex-grow">
             <a
               href="#responsive-header"
@@ -94,7 +94,7 @@ const NavBar = () => {
             </a>
           </div>
           <div className="flex justify-end ">
-            <IoIosLogOut onClick={() => auth.signOut()} size={'20px'} />
+            <IoIosLogOut onClick={() => auth.signOut()} size={"20px"} />
           </div>
         </div>
       </nav>
@@ -118,6 +118,6 @@ const NavBar = () => {
         </div>
       </div> */}
     </div>
-  )
-}
-export default NavBar
+  );
+};
+export default NavBar;
