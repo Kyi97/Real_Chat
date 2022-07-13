@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Nothing from './Nothing'
 
 const SideBar = () => {
+  const [nothing, setNothing] = useState(0)
+
   return (
-    <div className="ml-5 mr-10 bg-white rounded-2xl px-8 py-5 flex-col hidden lg:block">
+    <div className="ml-5 mr-10 bg-white rounded-2xl py-5 flex-col hidden lg:block">
+      <Nothing flag={nothing} />
       <div>
         <ul>
-          <li className="py-3 sm:py-4">
+          <li
+            className="py-3 sm:py-4 px-8 hover:bg-slate-400 hover:bg-opacity-20 rounded-lg cursor-pointer active:bg-opacity-40"
+            onClick={() => setNothing(Math.random())}
+          >
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
                 <img
@@ -27,7 +34,10 @@ const SideBar = () => {
               </div>
             </div>
           </li>
-          <li className="py-3 sm:py-4">
+          <li
+            className="py-3 sm:py-4 px-8 hover:bg-slate-400 hover:bg-opacity-20 rounded-lg cursor-pointer active:bg-opacity-40"
+            onClick={() => setNothing(Math.random())}
+          >
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
                 <img
@@ -49,7 +59,10 @@ const SideBar = () => {
               </div>
             </div>
           </li>
-          <li className="py-3 sm:py-4">
+          <li
+            className="py-3 sm:py-4 px-8 hover:bg-slate-400 hover:bg-opacity-20 rounded-lg cursor-pointer active:bg-opacity-40"
+            onClick={() => setNothing(Math.random())}
+          >
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
                 <img
@@ -69,7 +82,10 @@ const SideBar = () => {
               </div>
             </div>
           </li>
-          <li className="py-3 sm:py-4">
+          <li
+            className="py-3 sm:py-4 px-8 hover:bg-slate-400 hover:bg-opacity-20 rounded-lg cursor-pointer active:bg-opacity-40"
+            onClick={() => setNothing(Math.random())}
+          >
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
                 <img
@@ -91,7 +107,10 @@ const SideBar = () => {
               </div>
             </div>
           </li>
-          <li className="pt-3 pb-0 sm:pt-4">
+          <li
+            className="pt-3 sm:py-4 px-8 hover:bg-slate-400 hover:bg-opacity-20 rounded-lg cursor-pointer active:bg-opacity-40"
+            onClick={() => setNothing(Math.random())}
+          >
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
                 <img
